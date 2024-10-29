@@ -3,6 +3,17 @@ import React, { useState } from 'react';
 import ProductList from './ProductList';
 import './App.css';
 import AboutUs from './AboutUs';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'; // Importing Provider to connect the store
+import store from './store'; // Importing the configured store
+import App from './App'; // Importing your main App component
+
+ReactDOM.render(
+  <Provider store={store}> {/* Wrapping the App component with Provider */}
+    <App />
+  </Provider>,
+  document.getElementById('root') // Rendering the application to the root element
+);
 
 function App() {
   
