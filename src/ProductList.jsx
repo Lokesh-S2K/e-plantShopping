@@ -249,10 +249,16 @@ const handleContinueShopping = (e) => {
     setShowCart(false);
     setShowPlants(true);
 };
+  const handleAddToCart = (product) => {
+    dispatch(addItem({ ...product, quantity: 1 })); // Adds the product with a quantity of 1 to the cart
+  };
 
-const handleAddToCart = (plant) => {
-    dispatch(addItem(plant));
-};
+  // Function to get the quantity of an item in the cart
+  const getCartQuantity = (productId) => {
+    const item = cart.find(item => item.id === productId);
+    return item ? item.quantity : 0;
+  };
+
 
 return (
     <div>
